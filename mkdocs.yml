@@ -1,0 +1,7 @@
+site_name: knowledge-share
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

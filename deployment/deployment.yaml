@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: knowledge-share
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: knowledge-share
+  template:
+    metadata:
+      labels:
+        app: knowledge-share
+    spec:
+      containers:
+      - name:  knowledge-share
+        image: ghcr.io/paulopaniniorg/knowledge-share:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+      - name: github-secret
